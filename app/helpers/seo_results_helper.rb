@@ -1,0 +1,2 @@
+module SeoResultsHelper
+end

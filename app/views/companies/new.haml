@@ -1,0 +1,310 @@
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      ="创建新公司"  
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+    - form_for(@company,:html=>{:action => 'update', :multipart => true }) do |f|
+      %p= f.error_messages 
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="公司名称："
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :name ,:size=>45  
+            -#= @company.errors[:name]         
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+          
+      -#%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="代理商ID:"
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      =f.text_field,:introducer_id",:size=>15          
+      -#  %tr
+      -#    %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"} 
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="成立时间："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            -#= f.text_field  :foundtime,:size=>20  
+            = text_field_tag 'company[foundtime]',@company.foundtime ,:onclick =>"SelectDate(this,'yyyy-MM-dd')",:size => 15           
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="公司网址："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            ="http://#{ f.text_field :webaddress ,:size=>30 }"          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="出口率(%)："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = "#{f.text_field :exportrate ,:size=>5}％"         
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="投资率(%)："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = "#{f.text_field :investpro,:size=>5}％"          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="注册资金(万元)："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            ="#{f.text_field :regcapital,:size=>10}万（元）"          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="营业额(万元)："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            ="#{f.text_field :turnover,:size=>10}万（元）"
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="法人代表："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      = f.text_field :legalperson ,:size=>15          
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="员工人数："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            - members =  Sdata.find(:all,:conditions => ['stype = ?', 3]).collect { |row| [row.sname,row.sid] }
+            =f.select :employee ,members,{:include_blank => '--请选择--'}         
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="主营方向："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.radio_button :saleorbuy, '1',:checked => 'checked'
+            ="销售"
+            =f.radio_button :saleorbuy, '2' 
+            ="采购" 
+            =f.radio_button :saleorbuy, '3' 
+            ="两者兼有"            
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="经营模式："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      - patterns =  Sdata.find(:all,:conditions => ['stype = ?', 2]).collect { |row| [row.sname,row.sid] }
+      -#      =f.select :pattern ,patterns,{:include_blank => '--请选择--'}
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="公司类型："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            - companytypes =  Sdata.find(:all,:conditions => ['stype = ?',1]).collect { |row| [row.sname,row.sid] }
+            =f.select :companytype ,companytypes,{:include_blank => '--请选择--'}             
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+      
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="所有制形式："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      - ownerships =  Sdata.find(:all,:conditions => ['stype = ?',7]).collect { |row| [row.sname,row.sid] }
+      -#      =f.select :ownership ,ownerships,{:include_blank => '--请选择--'}             
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="所在省市："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      %table{:width=>"50%",:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0",:class=>"font06"}
+      -#        %tr
+      -#          %td{:width=>"15%",:align=>"left"}
+      -#            省份:
+      -#            %br
+      -#          %td{:width=>"15%",:align=>"left"}
+      -#            城市:
+      -#            %br
+      -#          %td{:width=>"15%",:align=>"left"}
+      -#            地区:
+      -#            %br
+      -#        %tr
+      -#          %td{:align=>"left"}
+      -#            =f.select(:province_id, City.get_province_select_options,{},"onchange" => remote_function( :with => "'province_id='+value+ '&partial=select_city'",:update => "cityid",:complete => "Element.hide('areaid')",:url =>{:controller => :cities,:action => :index_city}),:style=>"width:150px")
+      -#          %td{:align=>"left"} 
+      -#            %div{:id=>'cityid'} 
+      -#          %td{:align=>"left"}             
+      -#            %div{:id=>'areaid'}    
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="详细地址："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      =f.text_field :address,:size=>45         
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      -#%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+      -#  %tr
+      -#    %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+      -#      &nbsp;
+      -#    %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+      -#      ="邮政编码："
+      -#      %br
+      -#    %td{:align=>"left",:valign=>"middle"}
+      -#      = f.text_field :zip,:size=>15
+      -#  %tr
+      -#    %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="公司简介："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = fckeditor_textarea("company","introduction", :toolbarSet => 'Simple', :width =>'90%', :height => '320px' )
+            -#= f.text_area :introduction          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="标题图片："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            %img{:height=>100, :width=>480, :border=>1,:alt=>"标题图片(实际图片的1/4大)",:id=>"bannerpic", :src=>""}
+              = upload_column_field("company","banner")
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="LOGO图片："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            %img{:id=>"logopic",:src=>"",:alt=>"LOGO图片",:height=>90,:width=>150,:border=>1}
+              = upload_column_field("company", "logo" )
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.submit "点击保存"
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"40",:align=>"center",:valign=>"middle"}
+      &nbsp;
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回公司列表',companies_path,:class=>"d")

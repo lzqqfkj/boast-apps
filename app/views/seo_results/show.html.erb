@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th width="70">关键字</th>
+    <th width="70">搜索引擎</th>
+    <th width="70">总排名</th>
+    <th width="70">所在页码</th>
+    <th width="70">页面排名</th>
+    <th width="70">搜索时间</th>
+    <th width="270">页面快照</th>
+  </tr>
+  <tr>
+    <td><div align="center"><%=h @seo_result.seo_keyword.keyword %></div></td>
+    <td><div align="center"><%=h @seo_result.t_search.class_name %></div></td>
+    <td><div align="center"><%=h @seo_result.total %></div></td>
+    <td><div align="center"><%=h @seo_result.page_num %></div></td>
+    <td><div align="center"><%=h @seo_result.rank %></div></td>
+    <td><div align="center"><%=h @seo_result.time %></div></td>
+    <td><div align="center"><%=h @seo_result.path %></div></td>
+  </tr>
+</table>
+
+<br/>
+<%= link_to '编辑', [:edit, @seo_keyword, @seo_result]%> |
+<%= link_to '返回', seo_keyword_seo_results_path(@seo_keyword) %>

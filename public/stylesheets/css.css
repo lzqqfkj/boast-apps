@@ -1,0 +1,156 @@
+/* CSS Document */
+body{
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 14px;
+	color: #666666;
+	text-decoration: none;
+}
+.font01 {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FF0000;
+	text-decoration: none;
+}
+.font02 {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+}
+.font03 {
+	font-family: "宋体";
+	font-size: 30px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 35px;
+	font-weight: bold;
+}
+.font04 {
+	font-family: "宋体";
+	font-size: 24px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 30px;
+	font-weight: bold;
+}
+.font05 {
+	font-family: "宋体";
+	font-size: 16px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.font06 {
+	font-family: "宋体";
+	font-size: 14x;
+	color: #000000;
+	text-decoration: none;
+}
+.text01 {
+	height: 13px;
+	border: 1px solid #999999;
+}
+a:link {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #0000FF;
+	text-decoration: none;
+}
+a.b:link {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #0000FF;
+	text-decoration: none;
+}
+a.b:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #0000FF;
+	text-decoration: none;
+}
+a.b:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FF6600;
+	text-decoration: none;
+}
+a.c:link {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FF6600;
+	text-decoration: none;
+}
+a.c:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FF6600;
+	text-decoration: none;
+}
+a.c:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+}
+a.d:link {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.d:visited {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+a.d:hover {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#notice {
+border: 2px solid red;
+padding: 1em;
+margin-bottom: 2em;
+background-color: #f0f0f0 ;
+font-family: "宋体";
+font-weight: bold;
+font-size: 14px;
+}
+
+#errorExplanation {
+border: 2px solid red;
+background-color: #f0f0f0 ;
+}
+#errorExplanation h2 {
+text-align: left;
+font-weight: bold;
+padding: 10px 10px 10px 10px;
+font-size: 14px;
+margin: -7px;
+background-color: #c00;
+color: #fff;
+}
+
+#errorExplanation ul li {
+font-size: 14px;
+list-style: square;
+}

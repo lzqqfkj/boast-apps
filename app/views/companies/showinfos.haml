@@ -1,0 +1,76 @@
+
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center", :valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle", :background=>"/images/index_r1_c3.jpg"}
+      =@company.name
+  
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"7",:cellspacing=>"0",:class=>"font06"}
+        %tr
+          %th{:width=>"15",:height=>"24",:align=>"left", :valign=>"middle"}
+            &nbsp; 
+          %th{:width=>"16%", :align=>"center", :valign=>"middle"}="目标网站"
+          %th{:width=>"20%", :align=>"center", :valign=>"middle"}="注册状态"
+          %th{:width=>"20%", :align=>"center", :valign=>"middle"}="产品名称"
+          %th{:width=>"20%", :align=>"center", :valign=>"middle"}="信息标题" 
+          %th{:width=>"20%", :align=>"center", :valign=>"middle"}="博客文章"         
+        %tr
+          %td{:height=>"1", :colspan=>"7", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      - @company.regist_infos.each do |info|
+        %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"7",:cellspacing=>"0"}
+          %tr
+            %td{:width=>"15",:height=>"24",:align=>"left", :valign=>"middle"}
+              &nbsp; 
+            %td{:width=>"16%", :align=>"center", :valign=>"middle"}
+              %a{:href=>"#{info.shop_site}",:class=>"c"}
+                = B2bsite.find(info.b2bsite_id).name
+            %td{:width=>"20%",:align=>"center",:valign=>"middle"}
+              = "已注册"          if info.regist_state== 1 
+              = "已通过邮箱验证"  if info.regist_state== 2 
+              = "已完成"          if info.regist_state== 3 
+            %td{:width=>"20%",:align=>"center",:valign=>"middle"}              
+              - info.post_infos.each do |p|
+                - if p.post_type == 2
+                  %a{:href=>"#{p.post_url}",:class=>"b"}
+                    =Product.find(p.product_id).name
+                  %br  
+            %td{:width=>"20%",:align=>"center",:valign=>"middle"}
+              - info.post_infos.each do |p|
+                - if p.post_type == 1
+                  %a{:href=>"#{p.post_url}",:class=>"b"}
+                    =Product.find(p.product_id).title
+                  %br
+                     
+            %td{:width=>"20%",:align=>"center",:valign=>"middle"}
+              - info.post_infos.each do |p|
+                - if p.post_type == 3
+                  %a{:href=>"#{p.post_url}",:class=>"b"}
+                    =Product.find(p.product_id).title
+                  %br  
+          %tr
+            %td{:height=>"1", :colspan=>"7", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"} 
+          
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0"}
+  %tr 
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"10",:align=>"center",:valign=>"middle"}
+            &nbsp;
+          %td{:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回公司列表',companies_path,:class=>"d")
+            
+          %td{:width=>"10",:align=>"center",:valign=>"middle"}
+            &nbsp;
+          %td{:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+查看产品列表',company_products_path(@company),:class=>"d")

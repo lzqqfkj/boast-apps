@@ -1,0 +1,25 @@
+<% form_for([@seo_keyword,@seo_result]) do |f| %>
+  <%= f.error_messages %>
+  <table>
+     <tr>
+      <th width="70"><%= f.label :总排名数 %></th>
+      <td><%= f.text_field :total %></td>
+     </tr> 
+     <tr>
+      <th width="70"><%= f.label :所在页码 %></th>
+      <td><%= f.text_field :page_num %></td>
+     </tr> 
+     <tr>
+      <th width="70"><%= f.label :页面排名 %></th>
+      <td><%= f.text_field :rank %></td>
+     </tr> 
+     <tr>
+      <th width="70"><%= f.label :搜索时间 %></th>
+      <td><%= f.date_select :time %></td>
+     </tr> 
+     <tr>
+      <th width="70"><%= f.label :页面快照 %></th>
+      <td><%= f.text_field :path %></td>
+     </tr> 
+  </table>
+<% end %>

@@ -1,0 +1,66 @@
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="font05">
+  <tr>
+    <td width="30" height="35" align="center" valign="middle" background="/images/index_r1_c3.jpg">&nbsp;</td>
+    <td align="left" valign="middle" background="/images/index_r1_c3.jpg">同行优化效果比较</td>
+  </tr>
+</table>
+      <% sql=  "select seo_keyword_id,t_search_id " %>
+      <% d_total =Array.new %>
+      <% th_str = ""%>
+      <% SeoKeyword.find_by_sql('select DISTINCT company_id as company_id,companies.name from seo_domains,companies where seo_domains.company_id=companies.id').each do |d| %>
+      <%#  sql = sql + ",sum(case seo_domain_id when #{d.company_id} then total end) as d#{d.id}" %>
+      <%#= "d#{d.company_id}" %>
+      <% d_total << "d#{d.company_id}" %>
+      <% th_str = th_str+ "<td width='200' align='center' valign='middle'>#{d.name}</td>" %>
+      <%end%>
+      <%sql = sql+ " from seo_results where seo_keyword_id = "%>
+      <%sql = "select seo_keyword_id,t_search_id ,sum(case  when seo_domain_id in (1,2,3) then total end) as d6832,sum(case seo_domain_id when 4 then total end) as d2,sum(case seo_domain_id when 5 then total end) as d4,sum(case seo_domain_id when 6 then total end) as d6 from seo_results where seo_keyword_id = "%>
+      <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>
+          <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">关键字：<br /></td>                                                                                        
+          <td align="left" valign="middle"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="font06">                                                         
+            <tr>                                                                                                                                                                               
+              <td width="100" align="center" valign="middle">搜索引擎</td>                                                                                                                         
+              
+              <%= th_str %>  
+              <td>&nbsp;</td>                                                                                                                                                                  
+            </tr>                                                                                                                                                                              
+          </table></td>                                                                                                                                                                        
+        </tr>                                                                                                                                                                                  
+        <tr>                                                                                                                                                                                   
+          <td height="1" colspan="3" align="center" valign="middle" bgcolor="#76B6DC"></td>                                                                                                    
+        </tr>                                                                                                                                                                                  
+      </table> 
+    <% for seo_keyword in @seo_keywords %>                                                                                                                                                                                
+      <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">                                                                                                           
+        <tr>                                                                                                                                                                                   
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>                                                                                                
+          <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">
+          <%=h seo_keyword.keyword %> </td>  
+                                                       
+          <%# sql+seo_keyword.id.to_s + " and time='" + Time.now.strftime("%Y-%m-%d").to_s+"' group by seo_keyword_id,t_search_id " %>
+          <td align="left" valign="middle">
+            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">                                                                        
+              <% SeoKeyword.find_by_sql(sql + seo_keyword.id.to_s + " and time='" + Time.now.strftime("%Y-%m-%d").to_s+"'  group by seo_keyword_id,t_search_id" ).each do |r| %>                
+                <tr>                                                                                                                                                                               
+                  <td width="100" height="25" align="center" valign="middle"><%=h TSearch.find(r.t_search_id).chinese_name %></td>                                                                                                               
+                  
+                  <% d_total.each do |total| %>
+                    <td width="200" align="center" valign="middle"> 
+                      <%=h r[total] %>
+                  		<% d_total.each do |total| %>
+                  		<% end %>
+                    </td>     
+                  <% end %>
+                  <td>&nbsp;</td>
+                </tr>
+
+              <% end %>
+            </table></td>
+        </tr>
+        <tr>
+          <td height="1" colspan="3" align="center" valign="middle" bgcolor="#76B6DC"></td>
+        </tr>
+      </table>
+    <% end %>

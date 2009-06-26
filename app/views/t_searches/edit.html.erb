@@ -1,0 +1,32 @@
+<h1>Editing t_search</h1>
+
+<% form_for(@t_search) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :chinese_name %><br />
+    <%= f.text_field :chinese_name %>
+  </p>
+  <p>
+    <%= f.label :domain_name %><br />
+    <%= f.text_field :domain_name %>
+  </p>
+  <p>
+    <%= f.label :class_name %><br />
+    <%= f.text_field :class_name %>
+  </p>
+  <p>
+    <%= f.label :charset %><br />
+    <%= f.text_field :charset %>
+  </p>
+  <p>
+    <%= f.label :max_page %><br />
+    <%= f.text_field :max_page %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @t_search %> |
+<%= link_to 'Back', t_searches_path %>

@@ -1,0 +1,53 @@
+
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0",:class=>"font05"}
+  %tr
+  
+    %td{:width=>"20%",:height=>"35", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}
+      ='Stype'
+  
+    %td{:width=>"20%",:height=>"35", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}
+      ='Sid'
+  
+    %td{:width=>"25%",:height=>"35", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}
+      ='Sname'
+  
+    %td{:width=>"35%", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}="操作"
+    
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{:align=>"center" ,:valign=>"top"}
+      - for sdata in @sdatas
+        %table{:width=>"100%",:border=>"0", :align=>"center", :cellpadding=>"5", :cellspacing=>"0"}
+          %tr
+            %td{ :width=>"20",:height=>"24",:align=>"center",:valign=>"middle"}
+              &nbsp;
+          
+            %td{:width=>"20%", :align=>"center", :valign=>"middle"}
+              =sdata.stype
+          
+            %td{:width=>"20%", :align=>"center", :valign=>"middle"}
+              =sdata.sid
+          
+            %td{:width=>"25%", :align=>"center", :valign=>"middle"}
+              =sdata.sname
+          
+            %td{:width=>"35%", :align=>"center", :valign=>"middle"}
+              =link_to('查看', sdata,:class=>"c")
+              ="| #{link_to('编辑',edit_sdata_path(sdata),:class=>"c")} |"
+              =link_to('删除',sdata, :confirm => 'Are you sure?', :method => :delete,:class=>"c")          
+          %tr
+            %td{:height=>"1",:colspan=>"5",:align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"70", :align=>"center", :valign=>"middle"}
+      ="共 #{@sdatas.length} 条信息 "   
+
+%table{ :width=>"100%" ,:border=>"0" ,:align=>"center", :cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{:width=>"35", :height=>"35", :align=>"center", :valign=>"middle", :bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"center", :valign=>"middle", :bgcolor=>"#EEEEEE"}
+      %table{:border=>"0", :align=>"left", :cellpadding=>"0", :cellspacing=>"0"}
+        %tr
+          %td{:height=>"20", :align=>"left", :valign=>"middle", :bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+创建新sdata', new_sdata_path,:class=>"d")

@@ -1,0 +1,28 @@
+<p>
+  <b>Chinese name:</b>
+  <%=h @t_search.chinese_name %>
+</p>
+
+<p>
+  <b>Domain name:</b>
+  <%=h @t_search.domain_name %>
+</p>
+
+<p>
+  <b>Class name:</b>
+  <%=h @t_search.class_name %>
+</p>
+
+<p>
+  <b>Charset:</b>
+  <%=h @t_search.charset %>
+</p>
+
+<p>
+  <b>Max page:</b>
+  <%=h @t_search.max_page %>
+</p>
+
+
+<%= link_to 'Edit', edit_t_search_path(@t_search) %> |
+<%= link_to 'Back', t_searches_path %>

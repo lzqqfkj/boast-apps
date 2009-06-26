@@ -1,0 +1,14 @@
+<% form_for([@company,@seo_keyword]) do |f| %>                                     
+  <%= f.error_messages %>                                                          
+  <table>                                                                          
+    <tr>                                                                           
+      <td width = "100"><b><%= f.label :添加关键字 %>: </td>                            
+      <td height="48"><%= f.text_field :keyword %></td>                            
+    </tr>                                                                          
+    <tr>                                                                                                                                                          
+      <td></td>                                                                    
+      <td><div align="right"><%= f.submit button_name %></div></td>                
+    </tr>                                                                          
+  </table>                                                                         
+                                                                                   
+<% end %>

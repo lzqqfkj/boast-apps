@@ -1,0 +1,72 @@
+
+
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30%",:height=>"35", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}="公司名称"
+    %td{:width=>"30%", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}="关键字"
+    %td{:width=>"20%", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}="主营行业"
+    %td{:width=>"20%", :align=>"center", :valign=>"middle", :background=>"images/index_r1_c3.jpg"}="操作"
+
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{:align=>"center" ,:valign=>"top"}
+      - for company in @companies
+        %table{:width=>"100%",:border=>"0", :align=>"center", :cellpadding=>"5", :cellspacing=>"0"}
+          %tr
+            %td{ :width=>"20",:height=>"24",:align=>"left",:valign=>"middle"}
+              &nbsp;
+            %td{ :align=>"left", :valign=>"middle"}
+              =link_to(company.name, company)
+            %td{ :width=>"30%", :align=>"left", :valign=>"middle", :bgcolor=>"#EDF8FF"}
+              - if company.seo_keywords.empty?
+                =link_to('添加关键字', company_seo_keywords_path(company),:class=>"c")
+              - else
+                - company.seo_keywords.each do |k|
+                  =link_to(k.keyword,[company,k],:class => "b")
+                  |
+            %td{:width=>"20%", :align=>"left", :valign=>"middle"}
+              -for industry in company.industries
+                = industry.name 
+                &nbsp;
+            %td{:width=>"20%", :align=>"center", :valign=>"middle"}
+              =link_to('查看SEO', company_seo_keywords_path(company),:class=>"c")
+              ="| #{link_to('编辑', edit_company_path(company),:class=>"c")} |"
+              -#=link_to('删除', company, :confirm => 'Are you sure?', :method => :delete,:class=>"c")
+          %tr
+            %td{:height=>"1",:colspan=>"5",:align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"70", :align=>"center", :valign=>"middle"}
+      -#="共#{ @companies.length }条信息 "  
+      -#= will_paginate @companies ,:prev_label=>'<<上一页',:next_label=>'下一页>>'
+      = will_paginate @companies, :renderer => 'CustomPaginationRenderer',:prev_label=>'<<上一页',:next_label=>'下一页>>'
+      -#%p{:id=>"loading"}Loading more page results...
+
+%table{ :width=>"100%" ,:border=>"0" ,:align=>"center", :cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{:width=>"35", :height=>"35", :align=>"center", :valign=>"middle", :bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left", :valign=>"middle", :bgcolor=>"#EEEEEE"}
+      %table{:border=>"0", :align=>"left", :cellpadding=>"0", :cellspacing=>"0"}
+        %tr
+          %td{:height=>"20", :align=>"left", :valign=>"middle", :bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+创建新公司', new_seo_company_path,:class=>"d")
+            &nbsp;  
+            
+          %td{:height=>"20", :width=>"20",:align=>"left", :valign=>"middle"}
+            &nbsp;
+            
+          - if @flag
+            %td{:height=>"20", :align=>"left", :valign=>"middle", :bgcolor=>"#FF6600"}
+              &nbsp;
+              =link_to('返回公司列表', companies_path,:class=>"d")
+              &nbsp;
+            
+    %td{:align=>"right",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %form{:controller=>"company",:action =>"companies",:method=>"get"}
+        %b 公司名称
+        %input{:type=>"text",:id=>"value_name",:name=>"value[name]",:size=>"45"}
+        = submit_tag "查找"
+    
+    %td{:width=>"30%",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;

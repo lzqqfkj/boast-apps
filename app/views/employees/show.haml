@@ -1,0 +1,173 @@
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      ="查看联系人信息" 
+      
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="真实姓名："
+          %td{:align=>"left",:valign=>"middle"}
+            = @employee.name
+                    
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="昵称：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = @employee.nick_name          
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="用户名：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = @employee.login         
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="性别："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            ="先生" if @employee.sex == 0
+            ="女士" if @employee.sex == 1      
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="您的部门："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = @employee.dept       
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="您的职位："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =@employee.deptposition         
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="电子邮箱："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =@employee.email          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="固定电话："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =@employee.tel1 
+            ="-"
+            =@employee.tel2
+            ="-"
+            =@employee.tel3
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="传真："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =@employee.fax1 
+            ="-"
+            =@employee.fax2
+            ="-"
+            =@employee.fax3
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="手机号码："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = @employee.mobile 
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="角色："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            ="管理员" if @employee.role_id == 99
+            ="核心代理商" if @employee.role_id== 1          
+            ="代理商" if @employee.role_id == 2
+            ="企业主" if @employee.role_id == 3
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}     
+  %tr
+    %td{:height=>"40",:align=>"center",:valign=>"middle"}
+      &nbsp;
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+编辑',[:edit, @company, @employee],:class=>"d")
+            &nbsp;
+          %td{:width=>"10",:align=>"center",:valign=>"middle"}
+            &nbsp;
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回联系人列表',company_employees_path(@company),:class=>"d")

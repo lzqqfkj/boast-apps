@@ -1,0 +1,221 @@
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      ="修改联系人信息" 
+      
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+    - form_for([@company,@employee],:html => {:action => 'create', :multipart => true }) do |f| 
+      = f.error_messages 
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="真实姓名："
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :name ,:size=>20           
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="昵称：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :nick_name,:size=>20          
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="用户名：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :login,:size=>25
+            由4-20个字母（区分大小写）或数字组成,不支持中文.         
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="密 码：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.password_field :password,:size=>25
+            由6-20个字母（区分大小写）或数字组成.
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="重复密码：" 
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.password_field :password_confirmation,:size=>25 
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="性别："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.radio_button :sex, '0'
+            ="先生"
+            =f.radio_button :sex, '1' 
+            ="女士"            
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="您的部门："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :dept  ,:size=>20         
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="您的职位："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.text_field :deptposition,:size=>20          
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="电子邮箱："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.text_field :email ,:size=>30 
+            不能为空.         
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="固定电话："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            %table{:width=>"50%",:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0",:class=>"font06"}
+              %tr
+                %td{:align=>"left"}
+                  %div
+                    ="地区区号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分机号码"
+              %tr
+                %td{:align=>"left"}
+                  =f.text_field :tel1 ,:size=>5
+                  =f.text_field :tel2 ,:size=>15
+                  =f.text_field :tel3 ,:size=>5
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="传真："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            %table{:width=>"100%",:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0",:class=>"font06"}
+              %tr
+                %td{:align=>"left"}
+                  %div
+                    ="地区区号&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分机号码"
+              %tr
+                %td{:align=>"left"}
+                  =f.text_field :fax1 ,:size=>5
+                  =f.text_field :fax2 ,:size=>15
+                  =f.text_field :fax3 ,:size=>5
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+      
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="手机号码："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :mobile ,:size=>20
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+          
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="角色："
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            -#=f.radio_button :role_id, '99'
+            -#="管理员"
+            =f.radio_button :role_id, '1'
+            ="核心代理商"            
+            =f.radio_button :role_id, '2'
+            ="代理商"
+            =f.radio_button :role_id, '3'
+            ="企业主"
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+                    
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.submit "点击保存"
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"40",:align=>"center",:valign=>"middle"}
+      &nbsp;
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回联系人列表',company_employees_path(@company),:class=>"d")

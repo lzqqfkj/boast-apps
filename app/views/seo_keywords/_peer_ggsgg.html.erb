@@ -1,0 +1,61 @@
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="font05">
+  <tr>
+    <td width="30" height="35" align="center" valign="middle" background="/images/index_r1_c3.jpg">&nbsp;</td>
+    <td align="left" valign="middle" background="/images/index_r1_c3.jpg">下面是同行【烽火台】的优化效果</td>
+  </tr>
+</table>
+
+      <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>
+          <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">关键字：<br /></td>                                                                                        
+          <td align="left" valign="middle"><table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="font06">                                                         
+            <tr>                                                                                                                                                                               
+              <td width="100" align="center" valign="middle">搜索引擎</td>                                                                                                                         
+              <td width="80" align="center" valign="middle">总排名</td>                                                                                                                           
+              <td width="80" align="center" valign="middle">所在页码</td>                                                                                                                          
+              <td width="80" align="center" valign="middle">页面排名</td>                                                                                                                          
+              <td width="100" align="center" valign="middle">搜索时间</td>                                                                                                                         
+              <td width="100" align="center" valign="middle">页面快照</td>                                                                                                                         
+              <td width="180" align="center" valign="middle">操作</td>                                                                                                                           
+              <td>&nbsp;</td>                                                                                                                                                                  
+            </tr>                                                                                                                                                                              
+          </table></td>                                                                                                                                                                        
+        </tr>                                                                                                                                                                                  
+        <tr>                                                                                                                                                                                   
+          <td height="1" colspan="3" align="center" valign="middle" bgcolor="#76B6DC"></td>                                                                                                    
+        </tr>                                                                                                                                                                                  
+      </table> 
+    <% for seo_keyword in @seo_keywords %>                                                                                                                                                                                
+      <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">                                                                                                           
+        <tr>                                                                                                                                                                                   
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>                                                                                                
+          <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">
+          <%=h seo_keyword.keyword %> </td>                                                           
+          <td align="left" valign="middle">
+            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">                                                                        
+              <% SeoKeyword.find_by_sql("select seo_results.* from last_seo_results,seo_results where 
+                 seo_results.seo_keyword_id = last_seo_results.sid                                  
+                 and last_seo_results.tsid= seo_results.t_search_id                                 
+                 and seo_results.id = last_seo_results.lid                                          
+                 and last_seo_results.sid = "+ seo_keyword.id.to_s + " and seo_results.domain_id =4 ORDER BY seo_results.time DESC" ).each do |r| %>                
+                <tr>                                                                                                                                                                               
+                  <td width="100" height="25" align="center" valign="middle"><%=h TSearch.find(r.t_search_id).chinese_name %></td>                                                                                                               
+                  <td width="80" align="center" valign="middle"><%=h r.total %></td>                                                                                                                            
+                  <td width="80" align="center" valign="middle"><%=h r.page_num %></td>                                                                                                                             
+                  <td width="80" align="center" valign="middle"><%=h r.rank %></td>                                                                                                                             
+                  <td width="100" align="center" valign="middle"><%=h r.time%></td>                                                                                                                   
+                  <td width="100" align="center" valign="middle"><a href="http://192.168.4.150:2080/seo/<%=h r.path.gsub(/\\/,"/")%>" class="b">          
+                     <%=h TSearch.find(r.t_search_id).chinese_name %>快照</a></td>
+                  <td width="180" align="center" valign="middle"><%= link_to '历史记录', [@company,seo_keyword],:class=>"c" %></td> 
+                  <td>&nbsp;</td>
+                </tr>
+
+              <% end %>
+            </table></td>
+        </tr>
+        <tr>
+          <td height="1" colspan="3" align="center" valign="middle" bgcolor="#76B6DC"></td>
+        </tr>
+      </table>
+    <% end %>

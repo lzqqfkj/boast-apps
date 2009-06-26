@@ -1,0 +1,32 @@
+<!-- <h1>搜索结果</h1> -->
+
+<table>
+  <tr>
+    <th width="70">关键字</th>
+    <th width="70">搜索引擎</th>
+    <th width="70">总排名</th>
+    <th width="70">所在页码</th>
+    <th width="70">页面排名</th>
+    <th width="70">搜索时间</th>
+    <th width="270">页面快照</th>
+  </tr>
+
+<% for seo_result in @seo_results %>
+  <tr>
+    <td><div align="center"><%=h seo_result.seo_keyword.keyword %></div></td>
+    <td><div align="center"><%=h seo_result.t_search.class_name %></div></td> 
+    <td><div align="center"><%=h seo_result.total %></div></td>
+    <td><div align="center"><%=h seo_result.page_num %></div></td>
+    <td><div align="center"><%=h seo_result.rank %></div></td>
+    <td><div align="center"><%=h seo_result.time %></div></td>
+    <td><div align="center"><%=h seo_result.path %></div></td>
+    <td><%= link_to '查看', [@company,@seo_keyword,seo_result]%></td>
+    <td><%= link_to '编辑', [:edit, @company,@seo_keyword,seo_result] %></td>
+    <td><%= link_to '删除', [@company,@seo_keyword,seo_result], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<!-- <%= link_to 'New seo_result', new_seo_result_path %> -->

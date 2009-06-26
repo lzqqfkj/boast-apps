@@ -1,0 +1,3 @@
+<%= select(:company, :city_id, @cities,{},
+    "onchange" => remote_function( :with => "'city_id='+value+ '&partial=select_area'",:update => "areaid",:complete => "Element.show('areaid')",:url =>{:controller => :cities,:action => :index_area}),:style=>"width:160px"
+    )%>

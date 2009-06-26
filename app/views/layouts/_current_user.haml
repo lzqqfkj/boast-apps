@@ -1,0 +1,18 @@
+-if defined?(current_user) and ( not current_user.nil?)
+  %h1
+    [
+    =current_user.company.name
+    的
+    =current_user.login
+    =current_user.role_id
+    ]
+    -if current_user.role_id == 1
+      %img{:src=>"/images/role_agent.jpg",:height=>32}
+    -if current_user.role_id == 2
+      %img{:src=>"/images/role_assistance.jpg",:height=>32}
+    -if current_user.role_id == 3
+      %img{:src=>"/images/role_Corporation.jpg",:height=>32}
+    -if current_user.role_id == 99
+      %img{:src=>"/images/role_manager.jpg",:height=>32}
+    %a{:href=>"#{new_session_path}"}
+      %img{:src=>"/images/logout.jpg",:height=>32}

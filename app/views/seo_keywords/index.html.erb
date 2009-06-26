@@ -1,0 +1,61 @@
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="font05">
+  <tr>
+    <td width="30" height="35" align="center" valign="middle" background="/images/index_r1_c3.jpg">&nbsp;</td>
+    <td align="left" valign="middle" background="/images/index_r1_c3.jpg">查看SEO</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="top">
+       <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>
+          <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">公司名称：</td>          
+          <td width="230" align="left" valign="middle"><%=h @company.name %></td>
+          <td align="left" valign="middle">              
+           <% form_tag :controller =>:seo_companies,:action =>:create,:seo_company=>{:name=> @company.name }  do %>
+                  <% if @outdated %><%= submit_tag "抓取？" %>
+          	      <% else %><%= submit_tag "不抓取？" %><%end%>
+           <% end %></td>
+        </tr>
+        <tr>
+          <td height="1" colspan="4" align="center" valign="middle" bgcolor="#76B6DC"></td>
+        </tr>        
+      </table>        
+      <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr> 
+          <td width="20" height="24" align="left" valign="middle" bgcolor="#EDF8FF">&nbsp;</td>
+          <% if @company.seo_keywords.empty? %>
+             <% form_for([@company,@seo_keyword = SeoKeyword.new ]) do |f|%>
+                <td width="210" align="left" valign="middle" bgcolor="#EDF8FF" class="font06">添加关键字：</td>
+                <td width="230" align="left" valign="middle"><%= f.text_field :keyword %></td>
+                <td align="left" valign="middle"><%= f.submit"保 存 " %> <%end%></td>
+         </tr>
+
+          <tr>
+             <td height="1" colspan="4" align="center" valign="middle" bgcolor="#76B6DC"></td>
+          </tr>
+         <%else%>          
+          <%= render :partial => "seo_keywords/index" %>
+         <% end %>
+</table>
+
+<%if params[:flag] == "true"%>         
+   <%= render :partial => "seo_keywords/peer" %>
+<% end %>
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="35" height="35" align="center" valign="middle" bgcolor="#EEEEEE">&nbsp;</td>
+    <td align="left" valign="middle" bgcolor="#EEEEEE"><table border="0" align="left" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="20" align="left" valign="middle" bgcolor="#FF6600">&nbsp;
+        <%= link_to '+返回公司列表', companies_path, :class=>"d"%>&nbsp;</td>
+        <td width="10" align="center" valign="middle"> &nbsp;</td>
+        <td height="20" align="left" valign="middle" bgcolor="#FF6600">&nbsp;
+          <%= link_to '+同行业比较', company_seo_keywords_path(@company,:flag => 'true'), :class=>"d"%>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>

@@ -1,0 +1,32 @@
+<h1>Listing seo_results</h1>
+
+<table>
+  <tr>
+    <th>T search</th>
+    <th>Seo keyword</th>
+    <th>Total</th>
+    <th>Page num</th>
+    <th>Rank</th>
+    <th>Time</th>
+    <th>Path</th>
+  </tr>
+
+<% for seo_result in @seo_results %>
+  <tr>
+    <td><%=h seo_result.t_search %></td>
+    <td><%=h seo_result.seo_keyword %></td>
+    <td><%=h seo_result.total %></td>
+    <td><%=h seo_result.page_num %></td>
+    <td><%=h seo_result.rank %></td>
+    <td><%=h seo_result.time %></td>
+    <td><%=h seo_result.path %></td>
+    <td><%= link_to 'Show', seo_result %></td>
+    <td><%= link_to 'Edit', edit_seo_result_path(seo_result) %></td>
+    <td><%= link_to 'Destroy', seo_result, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New seo_result', new_seo_result_path %>

@@ -1,0 +1,29 @@
+﻿<h1>Listing companies </h1>
+
+<table width="100%" border="1" cellpadding="0" bordercolorlight="#777777" bordercolordark="#999999" cellspacing="0" align="center">
+  <tr>
+    <th>名称</th>
+    <th>login</th>
+    <th>email</th>
+    <th>公司</th>
+    <th>行业</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td>
+    <%= link_to image_tag("edit.gif",:height => '16'   ), edit_user_path(user) %>
+    <%= link_to image_tag("delete.jpg",:height => '16' ), user, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to user.nickname, user %>
+    </td>
+    <td><%=h user.login %></td>
+    <td><%=h user.email %></td> 
+    <td><%=h user.company.name %></td> 
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user', new_user_path %>

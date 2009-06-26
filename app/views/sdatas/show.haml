@@ -1,0 +1,65 @@
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center", :valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle", :background=>"/images/index_r1_c3.jpg"}
+      ="查看信息"
+  
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20", :height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="Stype:"
+          %td{:align=>"left",:valign=>"middle"}
+            = @sdata.stype
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle", :bgcolor=>"#76B6DC"}
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20", :height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="Sid:"
+          %td{:align=>"left",:valign=>"middle"}
+            = @sdata.sid
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle", :bgcolor=>"#76B6DC"}
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20", :height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            ="Sname:"
+          %td{:align=>"left",:valign=>"middle"}
+            = @sdata.sname
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle", :bgcolor=>"#76B6DC"}
+    
+
+  %tr 
+    %td{:height=>"40",:align=>"center",:valign=>"middle"}
+      &nbsp;
+      
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0"}
+  %tr 
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+编辑', edit_sdata_path(@sdata),:class=>"d")
+            &nbsp;
+          %td{:width=>"10",:align=>"center",:valign=>"middle"}
+            &nbsp;
+          %td{:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回',sdatas_path,:class=>"d")

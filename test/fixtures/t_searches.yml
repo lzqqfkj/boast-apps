@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chinese_name: MyString
+  domain_name: MyString
+  class_name: MyString
+  charset: MyString
+  max_page: 1
+
+two:
+  chinese_name: MyString
+  domain_name: MyString
+  class_name: MyString
+  charset: MyString
+  max_page: 1

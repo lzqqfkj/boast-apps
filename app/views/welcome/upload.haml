@@ -1,0 +1,17 @@
+%table{ :width=>"100%" ,:border=>"0" ,:align=>"center" ,:cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{ :width=>"130" ,:height=>"105" ,:align=>"left", :valign=>"middle"}
+      %img{:src=>"/images/index_r1_c1.jpg", :width=>"130" ,:height=>"105"}
+    %td{:align=>"left" ,:valign=>"middle" ,:background=>"/images/index_r1_c2.jpg"}
+      %span{:class=>"font03"}
+        current_user.company.name
+        的
+        current_user.login
+
+-form_for @company,:url => { :action => "update" } ,:html => {:action => 'upload', :multipart => true } do |form|
+  %fieldset
+    %ul
+      %li
+        %p 标题
+-#        = form.file_field :attachable, :logo
+  %p= form.submit("upload")

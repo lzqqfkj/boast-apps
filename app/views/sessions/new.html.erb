@@ -1,0 +1,26 @@
+<% form_tag session_path do -%>
+<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="180" align="center" valign="middle">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="255" align="left" valign="bottom" background="/images/index_r2_c2.gif"><table border="0" align="left" cellpadding="0" cellspacing="0" class="font06">
+      <tr>
+        <td width="80" height="50" align="center" valign="middle">&nbsp;</td>
+        <td width="300" align="left" valign="middle">用户名
+          <%= text_field_tag 'login',nil, :class=>"text01",:size=>"12"%>
+          &nbsp;密码
+          <%= password_field_tag 'password',nil, :class=>"text01",:size=>"12"%></td>
+        <td align="left" valign="middle"><%= image_submit_tag 'Log in',:src=>"/images/button001.jpg",:width=>"100",:height=>"25",:border=>"0" %></td>
+        </tr>
+      <tr>
+        <td height="30" align="center" valign="middle">&nbsp;</td>
+        <td colspan="2" align="left" valign="middle"><span class="font01">注：</span><span class="font02">非本站工作人员，请勿非法登陆此系统！违者追究其责任！</span></td>
+        </tr>
+      <tr>
+        <td height="20" colspan="3" align="center" valign="middle">&nbsp;</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<% end -%>

@@ -1,0 +1,67 @@
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"15%",:height=>"35", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="产品名称"   
+    %td{:width=>"20%", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="产品简介"
+    %td{:width=>"15%", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="产品图片"
+    %td{:width=>"15%", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="供货总量"
+    %td{:width=>"15%", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="产品单价" 
+    %td{:width=>"20%", :align=>"center", :valign=>"middle", :background=>"/images/index_r1_c3.jpg"}="操作"
+
+%table{:width=>"100%", :border=>"0", :align=>"center", :cellpadding=>"0", :cellspacing=>"0"}
+  %tr
+    %td{:align=>"center" ,:valign=>"top"}
+      - for product in @products
+        %table{:width=>"100%",:border=>"0", :align=>"center", :cellpadding=>"7", :cellspacing=>"0"}
+          %tr
+            %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle"}
+              &nbsp;
+            %td{:align=>"left", :valign=>"middle"}
+              = product.name
+              -#= link_to(product.name,[@company,product])
+              %br
+            %td{:width=>"20%",:align=>"left", :valign=>"middle"}
+              = product.Introduction
+              &nbsp;
+            %td{:width=>"15%",:align=>"center", :valign=>"middle"}
+              %img{:height=>70, :width=>100, :border=>1,:id=>"productpic", :src=>"#{product.picture}"}
+              &nbsp;
+            %td{:width=>"15%",:align=>"center", :valign=>"middle"}
+              = product.TotalSupply
+              &nbsp;
+              - if Sdata.find_by_sid(product.MeasuringUnit) == nil
+                &nbsp;
+              - else
+                = Sdata.find_by_sid(product.MeasuringUnit).sname
+            %td{:width=>"15%",:align=>"center", :valign=>"middle"}
+              = product.price.to_f / 10000
+              &nbsp;元/
+              - if Sdata.find_by_sid(product.MeasuringUnit) == nil
+                &nbsp;
+              - else
+                = Sdata.find_by_sid(product.MeasuringUnit).sname
+              
+            %td{:width=>"20%",:align=>"center", :valign=>"middle"}
+              =link_to('详细信息', [@company,product],:class=>"c")
+              ="| #{link_to('编辑', [:edit, @company, product],:class=>"c")} |"
+              =link_to('删除', [@company,product], :confirm => 'Are you sure?', :method => :delete,:class=>"c")
+          %tr
+            %td{:height=>"1",:colspan=>"7",:align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"70", :align=>"center", :valign=>"middle"}  
+
+%table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"0",:cellspacing=>"0"}
+  %tr 
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+添加新产品', new_company_product_path(@company),:class=>"d")
+            &nbsp;
+          %td{:width=>"10",:align=>"center",:valign=>"middle"}
+            &nbsp;
+          %td{:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回公司列表',companies_path,:class=>"d")

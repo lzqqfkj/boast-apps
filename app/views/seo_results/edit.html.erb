@@ -1,0 +1,5 @@
+<%=render :partial=> @seo_result, :locals=>{:button_name=> "保存"}%>
+
+<br/>
+<%= link_to '查看', [@seo_keyword,@seo_result ]%> |
+<%= link_to '返回', seo_keyword_seo_results_path (@seo_keyword)%>

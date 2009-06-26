@@ -1,0 +1,71 @@
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0",:class=>"font05"}
+  %tr
+    %td{:width=>"30",:height=>"35",:align=>"center",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:background=>"/images/index_r1_c3.jpg"}
+      ='sdata ' 
+
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:align=>"center",:valign=>"top"}
+    - form_for(@sdata,:html=>{:action => 'update', :multipart => true }) do |f|
+      %p= f.error_messages
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            =f.label :stype
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :stype ,:size=>45           
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}      
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            =f.label :sid
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :sid ,:size=>45           
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}      
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle",:bgcolor=>"#EDF8FF",:class=>"font06"}
+            =f.label :sname
+          %td{:align=>"left",:valign=>"middle"}
+            = f.text_field :sname ,:size=>45           
+        %tr
+          %td{:height=>"1",:colspan=>"3",:align=>"center",:valign=>"middle",:bgcolor=>"#76B6DC"}      
+    
+      %table{:width=>"100%",:border=>"0",:align=>"center", :cellpadding=>"5",:cellspacing=>"0"}
+        %tr
+          %td{:width=>"20",:height=>"24",:align=>"left", :valign=>"middle",:bgcolor=>"#EDF8FF"}
+            &nbsp;
+          %td{:width=>"210",:align=>"left",:valign=>"middle", :bgcolor=>"#EDF8FF",:class=>"font06"}
+            %br
+          %td{:align=>"left",:valign=>"middle"}
+            =f.submit "点击保存"
+        %tr
+          %td{:height=>"1", :colspan=>"3", :align=>"center", :valign=>"middle", :bgcolor=>"#76B6DC"}
+  %tr
+    %td{:height=>"40",:align=>"center",:valign=>"middle"}
+      &nbsp;
+      
+%table{:width=>"100%",:border=>"0",:align=>"center",:cellpadding=>"0",:cellspacing=>"0"}
+  %tr
+    %td{:width=>"35",:height=>"35",:align=>"center",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      &nbsp;
+    %td{:align=>"left",:valign=>"middle",:bgcolor=>"#EEEEEE"}
+      %table{:border=>"0",:align=>"left",:cellpadding=>"0",:cellspacing=>"0"}
+        %tr
+          %td{:height=>"20",:align=>"left",:valign=>"middle",:bgcolor=>"#FF6600"}
+            &nbsp;
+            =link_to('+返回',sdatas_path,:class=>"d")    

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  stype: 1
+  sid: 1
+  sname: MyString
+
+two:
+  stype: 1
+  sid: 1
+  sname: MyString

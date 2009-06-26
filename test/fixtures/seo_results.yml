@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  seo_keyword: 
+  t_search: 
+  total: 1
+  page_num: 1
+  rank: 1
+  time: 2008-12-22
+  path: MyString
+
+two:
+  seo_keyword: 
+  t_search: 
+  total: 1
+  page_num: 1
+  rank: 1
+  time: 2008-12-22
+  path: MyString

@@ -1,0 +1,26 @@
+<h1>Listing industries</h1>
+
+<table border="1" cellpadding="0" bordercolorlight="#777777" bordercolordark="#999999" cellspacing="0" >
+  <tr>
+    <th>Name</th>
+    <th>Logo</th>
+  </tr>
+
+<% for industry in @industries %>
+  <tr>
+    <td><%=h industry.name %></td>
+    <td><%=h industry.logo %></td>
+    <% if current_user.role_id == 0 %>
+    <td><%= link_to 'Show', industry %></td>
+    <td><%= link_to 'Edit', edit_industry_path(industry) %></td>
+    <td><%= link_to 'Destroy', industry, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if current_user.role_id == 0 %>
+<%= link_to 'New industry', new_industry_path %>
+<% end %>

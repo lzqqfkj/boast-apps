@@ -1,0 +1,38 @@
+<p>
+  <b>T search:</b>
+  <%=h @seo_result.t_search %>
+</p>
+
+<p>
+  <b>Seo keyword:</b>
+  <%=h @seo_result.seo_keyword %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%=h @seo_result.total %>
+</p>
+
+<p>
+  <b>Page num:</b>
+  <%=h @seo_result.page_num %>
+</p>
+
+<p>
+  <b>Rank:</b>
+  <%=h @seo_result.rank %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @seo_result.time %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%=h @seo_result.path %>
+</p>
+
+
+<%= link_to 'Edit', edit_seo_result_path(@seo_result) %> |
+<%= link_to 'Back', seo_results_path %>
